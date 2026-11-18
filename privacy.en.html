@@ -125,8 +125,15 @@
     Mainland China note: hosting in mainland China may require ICP filing for the domain; distribution in mainland China is also subject to the PIPL notice requirements (processor identity, purpose and method, categories and retention, channels for exercising rights). <strong>This is a China-specific compliance note, separate from Microsoft Store policy 10.5.1.</strong>
   </div>
 
-  <h2 id="e12">E12. Resolved: window state after uninstall</h2>
-  <p>Up to 1.4.11 the MSIX build wrote <code>window_state.json</code> outside the package, on a path shared with the portable build, so uninstall left it behind. Since 1.4.12 the packaged build writes to <code>%LOCALAPPDATA%\Packages\&lt;family name&gt;\LocalState\</code> (removed on uninstall); the portable build keeps the old path; an unwritable container falls back silently. Only <code>assets/winstate.js</code> changed.</p>
+  <h2 id="e12">E12. Change log</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Date</th><th>Version</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>2026-11-19</td><td>1.0</td><td>First version, written from code inspection of 1.4.11</td></tr>
+      </tbody>
+    </table>
+  </div>
 
 </main>
 

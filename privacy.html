@@ -125,8 +125,15 @@
     境内分发补充：若托管在境内服务器，域名是否需 ICP 备案、备案主体是否与运营者一致，需自行确认；若在中国大陆分发，还应满足《个人信息保护法》的告知要求（处理者身份、目的与方式、种类与期限、权利行使途径）。<strong>这是境内合规提示，与 Microsoft Store 10.5.1 是两套依据。</strong>
   </div>
 
-  <h2 id="s12">12. 已处理：卸载后窗口状态残留</h2>
-  <p>1.4.11 及以前，MSIX 运行把窗口状态写在 <code>%LOCALAPPDATA%\工程勘察设计预算软件\</code>，与免安装版共用路径，卸载不清理。1.4.12 已改为包运行写 <code>%LOCALAPPDATA%\Packages\&lt;包族名&gt;\LocalState\</code>（随卸载删除），免安装版保持原路径；不可写时静默降级。只改 <code>assets/winstate.js</code>，不动算价、导出与存档。</p>
+  <h2 id="s12">12. 变更记录</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>日期</th><th>版本</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>2026-11-19</td><td>1.0</td><td>首版，按 1.4.11 代码取证撰写</td></tr>
+      </tbody>
+    </table>
+  </div>
 
 </main>
 
