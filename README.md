@@ -83,11 +83,10 @@ index.html ──> privacy.html ──> privacy.en.html
 | E2 Operator and contact | Public URL of this policy | `https://reborn202108.github.io/SurveyBudget/privacy.html` |
 | E11 Policy information | Contact email / Public URL / Effective date | 同上三项 |
 
-需要人工确认、不是占位符但会影响口径的项：
+口径与内容处理记录：
 
-- **运营者名称**：现填「维周之桢」（Partner Center 发布者显示名）。若实际经营主体是公司或个体工商户，应改为营业执照全称。
-- **适用版本**：现写 1.4.11，需与本次商店提交的版本一致。
-- **§11 / E11**：公开页保留为四行信息表（运营者、联系邮箱、公开地址、生效日期）。原先写给运营者的名称口径确认、ICP/PIPL 提示、Store 10.5.1 说明已移到仓库之外的内部文档 `msix\store\policy-checklist.md` 第五节，不随站点发布。
+- **运营者与境内合规**：名称口径、ICP/PIPL 提示属内部事项，见仓库之外的 `msix\store\policy-checklist.md` 第五节；适用版本号以本次商店提交的版本为准。
+- **§11 / E11**：公开页只保留四行信息表（运营者、联系邮箱、公开地址、生效日期），内部说明不随站点发布。
 - **§12 / E12**：已删除原「卸载后窗口状态残留」内部修复说明。卸载后不保留业务数据这一承诺原本就写在 §7 / E7 与 §8 / E8，不需要重复补写。
 - **变更记录**：Markdown 与 HTML 已逐条对齐，统一为 §12 / E12「变更记录」。原 Markdown §13 / E13 已改为 §12 / E12，原 §12 / E12 内部修复说明在两份文件中同步删除，小节编号保持连续。
 
