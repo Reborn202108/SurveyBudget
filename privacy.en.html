@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy · Geotechnical Investigation &amp; Design Budgeting Software</title>
+<meta name="description" content="Privacy policy: the application makes no outbound network requests and does not collect or upload any personal information.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="alternate" hreflang="zh-CN" href="privacy.html">
+</head>
+<body>
+
+<div class="topbar no-print">
+  <div class="topbar-inner">
+    <span class="brand">Geotechnical Investigation &amp; Design Budgeting Software · Privacy Policy</span>
+    <nav class="nav" aria-label="Site navigation">
+      <a href="index.html">Home</a>
+      <a href="privacy.html" hreflang="zh-CN">中文</a>
+      <a href="privacy.en.html" aria-current="page">English</a>
+    </nav>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <header class="page-head">
+    <h1>Privacy Policy</h1>
+    <div class="meta">Geotechnical Investigation &amp; Design Budgeting Software · Version 1.4.11 (Windows desktop / Microsoft Store) · Effective: 2026-11-19</div>
+  </header>
+
+  <h2 id="e0">E0. Summary</h2>
+  <p><strong>This application makes no outbound network requests and does not collect or upload any personal information.</strong> There is no account system, login, remote configuration, update check, telemetry, or crash reporting, and no remote fonts or CDN references. License validation (licensed edition) is performed entirely on the local machine.</p>
+  <div class="note">This policy was written from code inspection of version 1.4.11, not from a generic template. Verified locations are listed below.</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Check</th><th>Location</th><th>Finding</th></tr></thead>
+      <tbody>
+        <tr><td>fetch / XMLHttpRequest / sendBeacon</td><td><code>assets\*.js</code> (no matches)</td><td>UI code issues no network requests</td></tr>
+        <tr><td>Remote resources</td><td><code>index.html</code> (no http/https, @import, CDN, remote fonts)</td><td>All assets load from the package</td></tr>
+        <tr><td>WebSocket</td><td><code>assets\winstate.js:62</code></td><td><code>ws://127.0.0.1</code> loopback, native bridge only</td></tr>
+        <tr><td>Local server</td><td><code>neutralino.config.json</code>: port <code>51362</code></td><td>Binds 127.0.0.1 only</td></tr>
+        <tr><td>License self-check</td><td><code>license.js:455-485</code></td><td>Reads packaged relative files only</td></tr>
+        <tr><td>Logging</td><td><code>logging.enabled=false</code></td><td>No runtime log file</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="e1">E1. Scope</h2>
+  <p>This policy covers the Windows desktop edition of the software, including the MSIX package distributed through the Microsoft Store.</p>
+
+  <h2 id="e2">E2. Operator and contact</h2>
+  <ul>
+    <li>Operator: 维周之桢 (publisher display name shown in the Microsoft Store)</li>
+    <li>Contact email: <a href="mailto:jeachow@foxmail.com">jeachow@foxmail.com</a></li>
+    <li>Public URL of this policy: <a href="https://reborn202108.github.io/SurveyBudget/privacy.html">https://reborn202108.github.io/SurveyBudget/privacy.html</a></li>
+  </ul>
+
+  <h2 id="e3">E3. Information we process</h2>
+  <p>The application does not collect personal information and does not upload any data. The following items are created and stored locally only:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Item</th><th>Created when</th><th>Purpose</th><th>Storage</th><th>Retention</th></tr></thead>
+      <tbody>
+        <tr><td>Window position and size</td><td>Window closed</td><td>Restore layout</td><td>MSIX build: <code>%LOCALAPPDATA%\Packages\&lt;family name&gt;\LocalState\window_state.json</code>; portable build: <code>%LOCALAPPDATA%\工程勘察设计预算软件\window_state.json</code></td><td>Until user deletes</td></tr>
+        <tr><td>Project data</td><td>User saves</td><td>Budgeting work</td><td>User-chosen <code>.json</code> file</td><td>User controlled</td></tr>
+        <tr><td>Exported files</td><td>User exports</td><td>Deliverables</td><td>Location chosen in "Save as"</td><td>User controlled</td></tr>
+        <tr><td>Embedded browser data</td><td>WebView2 init</td><td>Render UI</td><td><code>%APPDATA%\KcsjBudget.exe\EBWebView</code></td><td>Until uninstall or deletion</td></tr>
+        <tr><td>License data (licensed edition)</td><td>License imported</td><td>Local validity check</td><td>WebView2 site data (localStorage)</td><td>Until expiry or clearing</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>None of the above contains name, phone number, government ID, address, location, contacts, photos, clipboard contents, or a device-unique identifier.</p>
+
+  <h2 id="e4">E4. Information we do not process</h2>
+  <ul>
+    <li>No registration; no phone numbers, email addresses, ID numbers, or addresses collected.</li>
+    <li>No files unrelated to budgeting are read; access occurs only at paths chosen by the user and the app's own state file.</li>
+    <li>No device fingerprints, MAC addresses, IMEI, or advertising identifiers; the machine code in the licensed edition is used locally only.</li>
+    <li>No advertising, analytics, push, or crash-reporting SDK.</li>
+  </ul>
+
+  <h2 id="e5">E5. Third-party sharing</h2>
+  <p><span class="ok">We do not provide, sell, or share user data with any third party.</span> The application has no backend; the developer cannot obtain user data from it.</p>
+
+  <h2 id="e6">E6. Embedded component: Microsoft Edge WebView2</h2>
+  <p>The application uses the Microsoft Edge WebView2 runtime to render its UI. The component is provided by Microsoft, and <strong>its own data handling is governed by Microsoft's privacy statement, not by this policy</strong>:</p>
+  <ul>
+    <li>Microsoft Privacy Statement: <a href="https://privacy.microsoft.com/privacystatement" rel="noopener">https://privacy.microsoft.com/privacystatement</a></li>
+    <li>WebView2 documentation: <a href="https://learn.microsoft.com/microsoft-edge/webview2/" rel="noopener">https://learn.microsoft.com/microsoft-edge/webview2/</a></li>
+  </ul>
+  <p><strong>Collected by us:</strong> none — the app never passes a remote URL to WebView2, only packaged local pages over <code>http://127.0.0.1:51362/…</code>. <strong>Handled by the component:</strong> WebView2 may maintain local cache, cookie storage, and component update data, and may interact with Microsoft under its own mechanisms; this contains none of the app's business data.</p>
+
+  <h2 id="e7">E7. Storage location and retention</h2>
+  <p>All data stays on the user's machine; nothing crosses borders. Uninstalling removes the install directory and the WebView2 user data directory. Since 1.4.12, the MSIX build keeps window state inside the package container (<code>%LOCALAPPDATA%\Packages\&lt;family name&gt;\LocalState\</code>), which is removed on uninstall; the portable build keeps using <code>%LOCALAPPDATA%\工程勘察设计预算软件\</code> and can be deleted manually.</p>
+
+  <h2 id="e8">E8. How to delete your data</h2>
+  <ol>
+    <li>Project/export files: delete them in File Explorer.</li>
+    <li>Window state: MSIX build — <code>%LOCALAPPDATA%\Packages\&lt;family name&gt;\LocalState\window_state.json</code>; portable build — <code>%LOCALAPPDATA%\工程勘察设计预算软件\window_state.json</code>.</li>
+    <li>Embedded browser data: close the app, then delete <code>%APPDATA%\KcsjBudget.exe\EBWebView</code>.</li>
+    <li>License data: clear the license in the app, or delete the site data above.</li>
+    <li>Full removal: uninstall via Settings → Apps, then clean the leftover in E7.</li>
+  </ol>
+
+  <h2 id="e9">E9. Children</h2>
+  <p>This is a professional tool for budgeting practitioners. It is not designed for children and does not collect age information. Use by a minor should be supervised by a guardian.</p>
+
+  <h2 id="e10">E10. Changes to this policy</h2>
+  <p>This policy is updated with software releases. If a release adds network functionality, data collection, or a third-party component, this document is updated at release time and noted in the Store "What's new in this version" field; material changes are also flagged on the in-app About page.</p>
+
+  <h2 id="e11">E11. Policy information</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Item</th><th>Details</th></tr></thead>
+      <tbody>
+        <tr><td>Contact email</td><td><a href="mailto:jeachow@foxmail.com">jeachow@foxmail.com</a></td></tr>
+        <tr><td>Public URL</td><td><a href="https://reborn202108.github.io/SurveyBudget/privacy.html">https://reborn202108.github.io/SurveyBudget/privacy.html</a></td></tr>
+        <tr><td>Effective date</td><td>2026-11-19</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>The operator is filled with 维周之桢 (the Partner Center publisher display name). If the operating entity is a registered company or sole proprietorship, replace it with the full registered name — a naming decision for the operator.</p>
+  <div class="note">
+    Mainland China note: hosting in mainland China may require ICP filing for the domain; distribution in mainland China is also subject to the PIPL notice requirements (processor identity, purpose and method, categories and retention, channels for exercising rights). <strong>This is a China-specific compliance note, separate from Microsoft Store policy 10.5.1.</strong>
+  </div>
+
+  <h2 id="e12">E12. Resolved: window state after uninstall</h2>
+  <p>Up to 1.4.11 the MSIX build wrote <code>window_state.json</code> outside the package, on a path shared with the portable build, so uninstall left it behind. Since 1.4.12 the packaged build writes to <code>%LOCALAPPDATA%\Packages\&lt;family name&gt;\LocalState\</code> (removed on uninstall); the portable build keeps the old path; an unwritable container falls back silently. Only <code>assets/winstate.js</code> changed.</p>
+
+</main>
+
+<footer class="site-footer">
+  Geotechnical Investigation &amp; Design Budgeting Software · Privacy Policy v1.0 · English translation of <code>privacy-policy.md</code>; the Chinese version governs in case of conflict.
+</footer>
+
+</body>
+</html>

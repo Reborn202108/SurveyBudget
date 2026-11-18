@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>隐私政策 · 工程勘察设计预算软件</title>
+<meta name="description" content="工程勘察设计预算软件隐私政策：不收集、不上传个人信息，全部数据处理在本机完成。">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="alternate" hreflang="en" href="privacy.en.html">
+</head>
+<body>
+
+<div class="topbar no-print">
+  <div class="topbar-inner">
+    <span class="brand">工程勘察设计预算软件 · 隐私政策</span>
+    <nav class="nav" aria-label="站点导航">
+      <a href="index.html">首页</a>
+      <a href="privacy.html" aria-current="page">中文</a>
+      <a href="privacy.en.html" hreflang="en">English</a>
+    </nav>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <header class="page-head">
+    <h1>工程勘察设计预算软件 隐私政策</h1>
+    <div class="meta">适用版本：1.4.11（Windows 桌面版 / Microsoft Store 分发）　生效日期：2026-11-19</div>
+  </header>
+
+  <h2 id="s0">0. 一句话结论</h2>
+  <p><strong>本软件不发起任何出站网络请求，不收集、不上传任何个人信息。</strong>没有账号、登录、远程配置、更新检查、埋点、崩溃上报，也没有远程字体或 CDN 引用。授权判定（如使用授权版）全部在本机完成。</p>
+  <div class="note">本文按当前代码实测撰写，不是通用模板。核查位置与结论见下表。</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>检查项</th><th>位置</th><th>结论</th></tr></thead>
+      <tbody>
+        <tr><td>fetch / XMLHttpRequest / sendBeacon</td><td><code>assets\*.js</code>（无匹配）</td><td>界面代码不发起网络请求</td></tr>
+        <tr><td>远程资源</td><td><code>index.html</code>（无 http/https、@import、CDN、远程字体）</td><td>全部资源随包本地加载</td></tr>
+        <tr><td>WebSocket</td><td><code>assets\winstate.js:62</code></td><td><code>ws://127.0.0.1</code> 回环，仅用于原生调用，不出机器</td></tr>
+        <tr><td>本地服务</td><td><code>neutralino.config.json</code>：<code>enableServer:true</code>、<code>port:51362</code></td><td>只监听 127.0.0.1，不对外</td></tr>
+        <tr><td>授权自校验</td><td><code>license.js:455-485</code></td><td>只读包内相对路径文件，不联网</td></tr>
+        <tr><td>日志</td><td><code>logging.enabled=false</code></td><td>不写运行日志</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="s1">1. 适用范围</h2>
+  <p>本政策适用于「工程勘察设计预算软件」Windows 桌面版（含 Microsoft Store 分发的 MSIX 包）。</p>
+
+  <h2 id="s2">2. 运营者与联系方式</h2>
+  <ul>
+    <li>运营者：维周之桢（Microsoft Store 开发者显示名）</li>
+    <li>联系邮箱：<a href="mailto:jeachow@foxmail.com">jeachow@foxmail.com</a></li>
+    <li>本政策公开地址：<a href="https://reborn202108.github.io/SurveyBudget/privacy.html">https://reborn202108.github.io/SurveyBudget/privacy.html</a></li>
+  </ul>
+
+  <h2 id="s3">3. 我们处理的信息</h2>
+  <p>本软件不收集个人信息，也不上传任何数据。下列信息只在本机产生、只在本机保存：</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>信息</th><th>产生时机</th><th>目的</th><th>保存位置</th><th>期限</th></tr></thead>
+      <tbody>
+        <tr><td>窗口位置与尺寸</td><td>关闭窗口时</td><td>下次恢复布局</td><td>MSIX 版：<code>%LOCALAPPDATA%\Packages\&lt;包族名&gt;\LocalState\window_state.json</code>；免安装版：<code>%LOCALAPPDATA%\工程勘察设计预算软件\window_state.json</code></td><td>至用户删除</td></tr>
+        <tr><td>工程数据</td><td>用户主动保存</td><td>完成预算编制</td><td>用户选择的 <code>.json</code> 文件</td><td>由用户决定</td></tr>
+        <tr><td>导出结果</td><td>用户主动导出</td><td>生成交付文件</td><td>“另存为”对话框中选定的位置</td><td>由用户决定</td></tr>
+        <tr><td>内嵌浏览器缓存</td><td>WebView2 初始化</td><td>渲染界面</td><td><code>%APPDATA%\KcsjBudget.exe\EBWebView</code></td><td>至卸载或删除</td></tr>
+        <tr><td>授权信息（仅授权版）</td><td>导入授权文件</td><td>本机校验有效期</td><td>本机 WebView2 站点数据（localStorage）</td><td>至到期或清除</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>以上均不含姓名、手机号、身份证号、住址、位置、通讯录、照片、剪贴板或设备唯一标识。</p>
+
+  <h2 id="s4">4. 我们不处理的信息</h2>
+  <ul>
+    <li>不要求注册，不收集手机号、邮箱、身份证号、地址。</li>
+    <li>不读取与预算编制无关的文件；读写只发生在用户通过系统对话框选择的路径与本软件自己的状态文件。</li>
+    <li>不采集设备指纹、MAC、IMEI、广告标识符；授权版机器码只在本机用于校验。</li>
+    <li>不接入广告、统计、推送、崩溃收集 SDK。</li>
+  </ul>
+
+  <h2 id="s5">5. 第三方共享</h2>
+  <p><span class="ok">不向任何第三方提供、出售或共享用户数据。</span>软件没有服务端，开发者无法从软件获得任何用户数据。</p>
+
+  <h2 id="s6">6. 内嵌组件：Microsoft Edge WebView2</h2>
+  <p>本软件使用 Microsoft Edge WebView2 运行时显示界面。该组件由 Microsoft 提供，<strong>其自身的数据处理适用 Microsoft 的隐私声明，不适用本政策</strong>：</p>
+  <ul>
+    <li>Microsoft 隐私声明：<a href="https://privacy.microsoft.com/zh-cn/privacystatement" rel="noopener">https://privacy.microsoft.com/zh-cn/privacystatement</a></li>
+    <li>WebView2 运行时说明：<a href="https://learn.microsoft.com/microsoft-edge/webview2/" rel="noopener">https://learn.microsoft.com/microsoft-edge/webview2/</a></li>
+  </ul>
+  <p>边界说明：<strong>我们收集的</strong>——无，软件只加载随包本地页面（<code>http://127.0.0.1:51362/…</code> 回环地址）；<strong>组件自身的</strong>——WebView2 可能在本机维护缓存、Cookie 存储与组件更新数据，按其自身机制与 Microsoft 交互，不包含本软件写入的业务数据。</p>
+
+  <h2 id="s7">7. 保存位置与期限</h2>
+  <p>全部数据保存在用户本机，不跨境传输。卸载会删除安装目录与 WebView2 用户数据目录。从 1.4.12 起，MSIX 版的窗口状态写在包容器 <code>%LOCALAPPDATA%\Packages\&lt;包族名&gt;\LocalState\</code> 内，随卸载删除；免安装版的同一文件在 <code>%LOCALAPPDATA%\工程勘察设计预算软件\</code>，通常不涉及“卸载”，需要时手动删除即可。</p>
+
+  <h2 id="s8">8. 如何删除数据</h2>
+  <ol>
+    <li>工程/导出文件：在资源管理器中删除。</li>
+    <li>窗口状态：MSIX 版在 <code>%LOCALAPPDATA%\Packages\&lt;包族名&gt;\LocalState\window_state.json</code>；免安装版在 <code>%LOCALAPPDATA%\工程勘察设计预算软件\window_state.json</code>。</li>
+    <li>内嵌浏览器数据：关闭软件后删除 <code>%APPDATA%\KcsjBudget.exe\EBWebView</code>。</li>
+    <li>授权信息（仅授权版）：在软件内清除授权，或删除上述站点数据。</li>
+    <li>彻底移除：在“设置 → 应用”中卸载，MSIX 版无需再手动清理本软件数据。</li>
+  </ol>
+
+  <h2 id="s9">9. 未成年人</h2>
+  <p>本软件是面向工程预算编制人员的专业工具，不面向未成年人设计，也不收集年龄信息。未成年人使用应在监护人指导下进行。</p>
+
+  <h2 id="s10">10. 政策更新</h2>
+  <p>本政策随软件版本更新。新增联网功能、新增数据收集或新增第三方组件时，会在新版本发布时同步更新本文，并在商店“此版本中的新增功能”中说明；重大变更同时在软件内“关于”页提示。</p>
+
+  <h2 id="s11">11. 政策信息</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>项目</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>联系邮箱</td><td><a href="mailto:jeachow@foxmail.com">jeachow@foxmail.com</a></td></tr>
+        <tr><td>公开地址</td><td><a href="https://reborn202108.github.io/SurveyBudget/privacy.html">https://reborn202108.github.io/SurveyBudget/privacy.html</a></td></tr>
+        <tr><td>生效日期</td><td>2026-11-19</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>运营者已填「维周之桢」（= Partner Center 的发布者显示名）。若实际运营主体是注册公司或个体工商户，应替换为营业执照全称——这是名称口径问题，需运营者确认。</p>
+  <div class="note">
+    境内分发补充：若托管在境内服务器，域名是否需 ICP 备案、备案主体是否与运营者一致，需自行确认；若在中国大陆分发，还应满足《个人信息保护法》的告知要求（处理者身份、目的与方式、种类与期限、权利行使途径）。<strong>这是境内合规提示，与 Microsoft Store 10.5.1 是两套依据。</strong>
+  </div>
+
+  <h2 id="s12">12. 已处理：卸载后窗口状态残留</h2>
+  <p>1.4.11 及以前，MSIX 运行把窗口状态写在 <code>%LOCALAPPDATA%\工程勘察设计预算软件\</code>，与免安装版共用路径，卸载不清理。1.4.12 已改为包运行写 <code>%LOCALAPPDATA%\Packages\&lt;包族名&gt;\LocalState\</code>（随卸载删除），免安装版保持原路径；不可写时静默降级。只改 <code>assets/winstate.js</code>，不动算价、导出与存档。</p>
+
+</main>
+
+<footer class="site-footer">
+  工程勘察设计预算软件 · 隐私政策 v1.0 · 本文与 <code>privacy-policy.md</code> 同源
+</footer>
+
+</body>
+</html>
